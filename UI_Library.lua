@@ -624,19 +624,19 @@ function library:CreateMain(title, description, keycode)
 			end;
 			
 			SliderBar.InputBegan:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 					dragging = true
 				end
 			end)
 
 			SliderBar.InputEnded:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputTypr == Enum.UserInputType.Touch then
 					dragging = false
 				end
 			end)
 
 			SliderBar.InputBegan:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 					library4:SetValue(input)
 				end
 			end)
@@ -658,67 +658,67 @@ function library:CreateMain(title, description, keycode)
         end
 
         function library3:CreateLabel(text)
-            local library4 = {}
-            local Label = Instance.new("TextLabel")
-            local UICorner_7 = Instance.new("UICorner")
-            local Icon_4 = Instance.new("ImageLabel")
-            local Title_5 = Instance.new("TextLabel")
-        
-            Label.Name = text.."Label"
-            Label.Parent = Tab
-            Label.BackgroundColor3 = theme.LightContrast
-            Label.BackgroundTransparency = 0
-            Label.Position = UDim2.new(0, 0, 0.336569577, 0)
-            Label.Size = UDim2.new(0, 375, 0, 50)
-            Label.Font = Enum.Font.SourceSans
-            Label.Text = ""
-            Label.TextColor3 = Color3.fromRGB(0, 0, 0)
-            Label.TextSize = 14.000
-
-            UICorner_7.CornerRadius = UDim.new(0, 6)
-            UICorner_7.Parent = Label
-
-            Icon_4.Name = "Icon"
-            Icon_4.Parent = Label
-            Icon_4.AnchorPoint = Vector2.new(0, 0.5)
-            Icon_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            Icon_4.BackgroundTransparency = 1.000
-            Icon_4.ClipsDescendants = true
-            Icon_4.Position = UDim2.new(0.032333333, 0, 0.5, 0)
-            Icon_4.Size = UDim2.new(0, 25, 0, 24)
-            Icon_4.Image = "rbxassetid://3926305904"
-            Icon_4.ImageRectOffset = Vector2.new(584, 4)
-            Icon_4.ImageRectSize = Vector2.new(36, 36)
-            Icon_4.ScaleType = Enum.ScaleType.Crop
-            Icon_4.SliceScale = 0.500
-            Icon_4.ImageColor3 = theme.TextColor
-
-            Title_5.Name = "Title"
-            Title_5.Parent = Label
-            Title_5.AnchorPoint = Vector2.new(0, 0.5)
-            Title_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            Title_5.BackgroundTransparency = 1.000
-            Title_5.Position = UDim2.new(0.141000003, 0, 0.5, 0)
-            Title_5.Size = UDim2.new(0, 101, 0, 21)
-            Title_5.Font = Enum.Font.GothamSemibold
-            Title_5.TextColor3 =  theme.TextColor
-            Title_5.TextSize = 14.000
-            Title_5.TextXAlignment = Enum.TextXAlignment.Left
-            Title_5.Text = text
-
-            function library4:Update(textnew) 
-                Title_5.Text = textnew
-            end
-
-            local obj = {
-                ["Type"] = "Label",
-                ["Instance"] = Label,
-                ["Api"] = library4
-            }
-            table.insert(library2["Tabs"][name], obj)
-            library4["Object"] = obj
-            return library4
-        end
+		    local library4 = {}
+		    local Label = Instance.new("TextLabel")
+		    local UICorner_7 = Instance.new("UICorner")
+		    local Icon_4 = Instance.new("ImageLabel")
+		    local Title_5 = Instance.new("TextLabel")
+		    
+		    Label.Name = text .. "Label"
+		    Label.Parent = Tab
+		    Label.BackgroundColor3 = theme.LightContrast
+		    Label.BackgroundTransparency = 0
+		    Label.Position = UDim2.new(0, 0, 0.336569577, 0) -- Change the Y value here to adjust spacing between labels
+		    Label.Size = UDim2.new(0, 375, 0, 50)
+		    Label.Font = Enum.Font.SourceSans
+		    Label.Text = ""
+		    Label.TextColor3 = Color3.fromRGB(0, 0, 0)
+		    Label.TextSize = 14.000
+		
+		    UICorner_7.CornerRadius = UDim.new(0, 6)
+		    UICorner_7.Parent = Label
+		
+		    Icon_4.Name = "Icon"
+		    Icon_4.Parent = Label
+		    Icon_4.AnchorPoint = Vector2.new(0, 0.5)
+		    Icon_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		    Icon_4.BackgroundTransparency = 1.000
+		    Icon_4.ClipsDescendants = true
+		    Icon_4.Position = UDim2.new(0.032333333, 0, 0.5, 0)
+		    Icon_4.Size = UDim2.new(0, 25, 0, 24)
+		    Icon_4.Image = "rbxassetid://3926305904"
+		    Icon_4.ImageRectOffset = Vector2.new(584, 4)
+		    Icon_4.ImageRectSize = Vector2.new(36, 36)
+		    Icon_4.ScaleType = Enum.ScaleType.Crop
+		    Icon_4.SliceScale = 0.500
+		    Icon_4.ImageColor3 = theme.TextColor
+		
+		    Title_5.Name = "Title"
+		    Title_5.Parent = Label
+		    Title_5.AnchorPoint = Vector2.new(0, 0.5)
+		    Title_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		    Title_5.BackgroundTransparency = 1.000
+		    Title_5.Position = UDim2.new(0.141000003, 0, 0.7, 0) -- Move the title down to increase vertical space between icon and title
+		    Title_5.Size = UDim2.new(0, 101, 0, 21)
+		    Title_5.Font = Enum.Font.GothamSemibold
+		    Title_5.TextColor3 = theme.TextColor
+		    Title_5.TextSize = 14.000
+		    Title_5.TextXAlignment = Enum.TextXAlignment.Left
+		    Title_5.Text = text
+		
+		    function library4:Update(textnew)
+		        Title_5.Text = textnew
+		    end
+		
+		    local obj = {
+		        ["Type"] = "Label",
+		        ["Instance"] = Label,
+		        ["Api"] = library4
+		    }
+		    table.insert(library2["Tabs"][name], obj)
+		    library4["Object"] = obj
+		    return library4
+		end
 
         function library3:CreateBind(text, originalBind, callback)
             local library4 = {}
