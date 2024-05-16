@@ -668,7 +668,7 @@ function library:CreateMain(title, description, keycode)
 		    Label.Parent = Tab
 		    Label.BackgroundColor3 = theme.LightContrast
 		    Label.BackgroundTransparency = 0
-		    Label.Position = UDim2.new(0, 0, 0.336569577, 0) -- Change the Y value here to adjust spacing between labels
+		    Label.Position = UDim2.new(0, 0, 0, 0) 
 		    Label.Size = UDim2.new(0, 375, 0, 50)
 		    Label.Font = Enum.Font.SourceSans
 		    Label.Text = ""
